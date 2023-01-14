@@ -10,12 +10,7 @@ import (
 	"github.com/Dias1c/aws-letter-sender/internal/letter/dtcomp"
 	"github.com/Dias1c/aws-letter-sender/internal/letter/sender"
 	"github.com/Dias1c/aws-letter-sender/pkg/fs"
-	"github.com/subosito/gotenv"
 )
-
-func init() {
-	gotenv.Load()
-}
 
 type Params struct {
 	DataExt  string
@@ -79,7 +74,6 @@ func GetParams() (*Params, error) {
 	// 2. Args
 	// 3. .env file
 	awsParams := sender.GetAWSParams()
-
 	params := &Params{
 		EmailSender: awsParams.SenderEmail,
 		EmailRegion: awsParams.SenderRegion,
