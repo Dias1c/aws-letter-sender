@@ -1,0 +1,2 @@
+Hello {{ if .name }}{{ .name }}{{else}}???{{ end }}, how are you?
+Your email is "{{ .email }}"
