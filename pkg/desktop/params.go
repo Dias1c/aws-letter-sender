@@ -39,7 +39,9 @@ file which stores emails to send and data for
 using template. It must contain values for key
 'EMAIL'. If file contain 
 %q keys,
-it will use them as main params to send letter. By default equal to "data.csv"
+it will use them as main params to send letter.
+
+By default equal to "data.csv"
 `, lineVars))  // --data-file="filepath" - path of data ext file
 		tmplFile = flag.String("tmpl-file", "", `[optional]
 template file. Files must end with '.txt', 
