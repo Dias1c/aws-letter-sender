@@ -2,7 +2,7 @@
 Program which sends many letters with aws engine
 
 ## Fast links
-- [How-to-run](##how-to-run) - 
+- [How-to-run](#how-to-run)
 
 ## How to run
 ### Runnig
@@ -17,13 +17,13 @@ example@example.ccom,,,
 ```
 > Explaining. We will use this file for template to fill it and send it to emails. This file is `csv` type, and first line contains only `keys`, and all next lines contains values to `keys`.
 
-Keys:
-- `EMAIL` - 
-- `name` - 
-- `TEMPLATE_FILE` - 
-- `SUBJECT` - 
+Variable Keys:
+- `EMAIL` - user email and variable
+- `name` - variable
+- `TEMPLATE_FILE` - template file path and variable
+- `SUBJECT` - subject of letter and variable
 
-> Program uses go builtin [`text/template`](https://pkg.go.dev/text/template), [`html/template`](https://pkg.go.dev/html/template) (See the usage examples).
+> Program uses go builtin [`text/template`](https://pkg.go.dev/text/template), [`html/template`](https://pkg.go.dev/html/template) packages.
 
 3. Run:
 The program for sending letters based on the submitted data
