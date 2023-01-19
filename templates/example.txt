@@ -1,2 +1,4 @@
 Hello {{ if .name }}{{ .name }}{{else}}???{{ end }}, how are you?
-Your email is "{{ .email }}"
+Your email is "{{ .EMAIL }}".
+Using template is "{{ .TEMPLATE_FILE }}".
+This letter subject is "{{ .SUBJECT }}".
