@@ -1,3 +1,4 @@
-email,name
-awsmail@example.com,Dias1c
-awsmail@example.com,
+EMAIL,name,TEMPLATE_FILE,SUBJECT
+example@example.com,Dias1c,template/example.html,My Example subject
+example@example.ccom,MyName,template/example.text,Text letter
+example@example.ccom,,,
