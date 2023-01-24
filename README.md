@@ -28,8 +28,9 @@ Variable Keys:
 3. Run:
 The program for sending letters based on the submitted data
 ```
-go run ./cmd/quick/main.go --data-file="data.csv"
+go run ./cmd/quick/main.go --data-file="YOUR_DATA_FILE"
 ```
+By default uses `data.csv` file
 
 On running program, it uses params. And this params we can set from different ways. Params also has priority.
 Priority of params from:
