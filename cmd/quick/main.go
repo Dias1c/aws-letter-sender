@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/Dias1c/aws-letter-sender/pkg/desktop"
+	"github.com/Dias1c/aws-letter-sender/internal/desktop"
 )
 
 func main() {

@@ -3,8 +3,8 @@ package sender
 import (
 	"fmt"
 
-	"github.com/Dias1c/aws-letter-sender/internal/letter/sender/html"
-	"github.com/Dias1c/aws-letter-sender/internal/letter/sender/text"
+	"github.com/Dias1c/aws-letter-sender/pkg/letter/sender/html"
+	"github.com/Dias1c/aws-letter-sender/pkg/letter/sender/text"
 )
 
 type IAWSSender interface {

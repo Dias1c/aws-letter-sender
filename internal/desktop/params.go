@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/Dias1c/aws-letter-sender/internal/letter/sender"
+	"github.com/Dias1c/aws-letter-sender/pkg/letter/sender"
 )
 
 type Params struct {

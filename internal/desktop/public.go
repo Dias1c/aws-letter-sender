@@ -6,9 +6,9 @@ import (
 	"log"
 	"os"
 
-	"github.com/Dias1c/aws-letter-sender/internal/letter/dtcomp"
-	"github.com/Dias1c/aws-letter-sender/internal/letter/sender"
 	"github.com/Dias1c/aws-letter-sender/pkg/fs"
+	"github.com/Dias1c/aws-letter-sender/pkg/letter/dtcomp"
+	"github.com/Dias1c/aws-letter-sender/pkg/letter/sender"
 )
 
 func init() {
