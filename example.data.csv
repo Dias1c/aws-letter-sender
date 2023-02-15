@@ -1,0 +1,4 @@
+EMAIL,name,TEMPLATE_FILE,SUBJECT
+example@example.com,Dias1c,templates/example.html,My Example subject
+example@example.com,MyName,templates/example.txt,Text letter
+example@example.com,,,
