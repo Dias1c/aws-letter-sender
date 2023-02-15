@@ -5,8 +5,8 @@ import (
 	"io"
 	"log"
 	"os"
+	"path/filepath"
 
-	"github.com/Dias1c/aws-letter-sender/pkg/fs"
 	"github.com/Dias1c/aws-letter-sender/pkg/letter/dtcomp"
 	"github.com/Dias1c/aws-letter-sender/pkg/letter/sender"
 )
@@ -49,7 +49,7 @@ func Run() error {
 		return fmt.Errorf("GetParams: %w(%v)", ErrFlagsRequired, err)
 	}
 
-	comp, err := dtcomp.GetDataCompiler(fs.GetExtension(params.DataFile))
+	comp, err := dtcomp.GetDataCompiler(filepath.Ext(params.DataFile))
 	if err != nil {
 		return fmt.Errorf("dtcomp.GetDataCompiler: %w", err)
 	}
@@ -92,7 +92,8 @@ func SendForLine(mp map[string]string, params *Params) (msg string, err error) {
 	if value, ok := mp[LV_SENDER_REGION]; ok {
 		senderRegion = value
 	}
-	templateExt := fs.GetExtension(template)
+
+	templateExt := filepath.Ext(template)
 
 	lsender, err := sender.NewSender(senderEmail, senderRegion, templateExt)
 	if err != nil {

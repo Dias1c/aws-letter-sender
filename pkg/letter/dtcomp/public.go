@@ -13,7 +13,7 @@ type IDataCompiler interface {
 
 func GetDataCompiler(extension string) (IDataCompiler, error) {
 	switch {
-	case extension == "csv":
+	case extension == ".csv":
 		return csv.NewDataCompiler(), nil
 	default:
 		return nil, fmt.Errorf("struct for extension '%v' not found", extension)

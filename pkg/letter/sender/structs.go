@@ -14,9 +14,9 @@ type IAWSSender interface {
 
 func NewSender(email, region, format string) (IAWSSender, error) {
 	switch {
-	case format == "txt" || format == "text":
+	case format == ".txt" || format == ".text":
 		return text.NewSender(email, region), nil
-	case format == "html":
+	case format == ".html":
 		return html.NewSender(email, region), nil
 	default:
 		return nil, fmt.Errorf("%w: '%v'", ErrUndefinedSender, format)
