@@ -12,7 +12,7 @@ Program which sends many letters with aws engine
 ```csv
 EMAIL,name,TEMPLATE_FILE,SUBJECT
 example@example.com,Dias1c,templates/example.html,My Example subject
-example@example.com,MyName,templates/example.text,Text letter
+example@example.com,MyName,templates/example.txt,Text letter
 example@example.com,,,
 ```
 > Explaining. We will use this file for template to fill it and send it to emails. This file is `csv` type, and first line contains only `keys`, and all next lines contains values to `keys`.
