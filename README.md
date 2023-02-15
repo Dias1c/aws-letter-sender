@@ -11,9 +11,9 @@ Program which sends many letters with aws engine
 2. Prepare `data.csv` file. Example:
 ```csv
 EMAIL,name,TEMPLATE_FILE,SUBJECT
-example@example.com,Dias1c,template/example.html,My Example subject
-example@example.ccom,MyName,template/example.text,Text letter
-example@example.ccom,,,
+example@example.com,Dias1c,templates/example.html,My Example subject
+example@example.com,MyName,templates/example.text,Text letter
+example@example.com,,,
 ```
 > Explaining. We will use this file for template to fill it and send it to emails. This file is `csv` type, and first line contains only `keys`, and all next lines contains values to `keys`.
 
@@ -27,10 +27,10 @@ Variable Keys:
 
 3. Run:
 The program for sending letters based on the submitted data
+```bash
+# By default uses `data.csv` file for sending letters or use flag  --data-file="YOUR_DATA_FILE"  
+go run ./cmd/quick/main.go
 ```
-go run ./cmd/quick/main.go --data-file="YOUR_DATA_FILE"
-```
-By default uses `data.csv` file
 
 On running program, it uses params. And this params we can set from different ways. Params also has priority.
 Priority of params from:
