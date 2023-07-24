@@ -1,10 +1,13 @@
 # aws-letter-sender
-Program which sends many letters with aws engine
+Program which sends many letters on [aws](https://aws.amazon.com/ses/) engine, with using `html`/`text` templates. 
+1. Prepare and set your params on `data.csv` file
+2. Prepare your `html` or `text` [template](https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-go) with variables from `data.csv`
+3. Run program, and it will send letters.
 
 ## Fast links
-- [How-to-run](#how-to-run)
+- [detailed-instructions](#detailed-instructions)
 
-## How to run
+## Detailed-instructions
 ### Runnig
 1. Prepare `.env` file (You will do it only 1 time). See `example.env` file and fill `.env` file, or run program with `env` params.
 
@@ -23,7 +26,7 @@ Variable Keys:
 - `TEMPLATE_FILE` - template file path and variable
 - `SUBJECT` - subject of letter and variable
 
-> Program uses go builtin [`text/template`](https://pkg.go.dev/text/template), [`html/template`](https://pkg.go.dev/html/template) packages.
+> Program uses go builtin [`text/template`](https://pkg.go.dev/text/template), [`html/template`](https://pkg.go.dev/html/template) packages. And to know "how to create own template", [this](https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-go) guide will help you.
 
 3. Run:
 The program for sending letters based on the submitted data
