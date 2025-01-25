@@ -43,6 +43,8 @@ Required params will be taken from `data.csv` and `.env` files.
 
 Data file (which is .csv) that defines email settings and template variables.
 
+> [Read about .csv file](https://en.wikipedia.org/wiki/Comma-separated_values)
+
 Advanced `data.csv` example:
 
 ```csv
@@ -77,6 +79,8 @@ System reserved variables are named with capital letters. Each system variable h
 | `SENDER_REGION` | optional | aws region            |
 
 All optional variable values ​​are taken from the arguments passed to the program or from the `.env` file.
+
+Variables that are not system keys will be used as variables for templates. 
 
 ### Parameters Priority
 
