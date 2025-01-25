@@ -14,7 +14,7 @@ user1@example.com
 user2@example.com
 ```
 
-3. Run:
+4. Run:
 
 ```bash
 go run ./cmd/quick/main.go --data-file="data.csv" --email-sender="sender@email.com" --subject="Subject" --tmpl-file="templates/example.html"
