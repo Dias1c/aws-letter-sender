@@ -1,45 +1,102 @@
 # aws-letter-sender
-Program which sends many letters on [aws](https://aws.amazon.com/ses/) engine, with using `html`/`text` templates. 
-1. Prepare and set your params on `data.csv` file
-2. Prepare your `html` or `text` [template](https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-go) with variables from `data.csv`
-3. Run program, and it will send letters.
 
-## Fast links
-- [detailed-instructions](#detailed-instructions)
+Email sender using [AWS SES](https://aws.amazon.com/ses/) with [HTML](https://pkg.go.dev/html/template)/[text](https://pkg.go.dev/text/template) templates support.
 
-## Detailed-instructions
-### Runnig
-1. Prepare `.env` file (You will do it only 1 time). See `example.env` file and fill `.env` file, or run program with `env` params.
+## Quick Send
 
-2. Prepare `data.csv` file. Example:
+1. Create `.env` from `example.env`
+2. Create your template in `templates` folder
+3. Prepare `data.csv`:
+
 ```csv
-EMAIL,name,TEMPLATE_FILE,SUBJECT
-example@example.com,Dias1c,templates/example.html,My Example subject
-example@example.com,MyName,templates/example.txt,Text letter
-example@example.com,,,
+EMAIL
+user1@example.com
+user2@example.com
 ```
-> Explaining. We will use this file for template to fill it and send it to emails. This file is `csv` type, and first line contains only `keys`, and all next lines contains values to `keys`.
-
-Variable Keys:
-- `EMAIL` - user email and variable
-- `name` - variable
-- `TEMPLATE_FILE` - template file path and variable
-- `SUBJECT` - subject of letter and variable
-
-> Program uses go builtin [`text/template`](https://pkg.go.dev/text/template), [`html/template`](https://pkg.go.dev/html/template) packages. And to know "how to create own template", [this](https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-go) guide will help you.
 
 3. Run:
-The program for sending letters based on the submitted data
+
 ```bash
-# By default uses `data.csv` file for sending letters or use flag  --data-file="YOUR_DATA_FILE"  
+go run ./cmd/quick/main.go --data-file="data.csv" --email-sender="sender@email.com" --subject="Subject" --tmpl-file="templates/example.html"
+```
+
+> [!TIP]
+> Program supports flag `-h`
+>
+> ```sh
+> go run ./cmd/quick/main.go -h  # Show all available options
+> ```
+
+## Advanced Usage
+
+### Running Without Flags
+
+You can run program without any flags
+
+```
 go run ./cmd/quick/main.go
 ```
 
-On running program, it uses params. And this params we can set from different ways. Params also has priority.
-Priority of params from:
-```md
-1. Data file
-2. Args
-3. .env file
+Required params will be taken from `data.csv` and `.env` files.
+
+### Data File
+
+Data file (which is .csv) that defines email settings and template variables.
+
+Advanced `data.csv` example:
+
+```csv
+EMAIL,TEMPLATE_FILE,SUBJECT,name
+example@example.com,templates/example.html,My Example subject,Dias1c
+example@example.com,templates/example.txt,Text letter,MyName
+example@example.com,,,
 ```
-> If we set `subject` as flag argument, and set it in `data.csv` file, program will use `subject` from `data.csv`.
+
+Explaining variable keys:
+
+| key             | variable | description                     |
+| --------------- | -------- | ------------------------------- |
+| `EMAIL`         | system   | variable, recipient email       |
+| `TEMPLATE_FILE` | system   | variable, path to template file |
+| `SUBJECT`       | system   | variable, letter subject        |
+| `name`          | user     | variable                        |
+
+> [!NOTE]
+> For the last row with empty columns, the values ​​for those columns will be taken from the `program arguments` or `env` file.
+
+#### System data Variables
+
+| key             | type     | description           |
+| --------------- | -------- | --------------------- |
+| `EMAIL`         | required | recipient email       |
+| `TEMPLATE_FILE` | optional | path to template file |
+| `SUBJECT`       | optional | letter subject        |
+| `SENDER_EMAIL`  | optional | aws sender email      |
+| `SENDER_REGION` | optional | aws region            |
+
+### Parameters Priority
+
+Program uses priority system to resolve conflicts when same parameter is set in multiple places:
+
+| Priority | Source        | Example                               |
+| -------- | ------------- | ------------------------------------- |
+| High     | Data file     | `data.csv`: SUBJECT=Welcome           |
+| Medium   | Command flags | `--subject="Hello"` as flag on launch |
+| Low      | .env file     | `SUBJECT=Hi` in .env                  |
+
+### Templates
+
+#### HTML
+
+```html
+<h1>Welcome {{.name}}!</h1>
+<p>Your activation code {{.code}} for {{.EMAIL}}</p>
+```
+
+#### Text
+
+```
+--- {{.EMAIL}}
+Dear {{.name}},
+Your order #{{.orderId}} completed
+```
