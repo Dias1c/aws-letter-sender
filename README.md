@@ -19,7 +19,6 @@ user2@example.com
 ```bash
 go run ./cmd/quick/main.go --data-file="data.csv" --email-sender="sender@email.com" --subject="Subject" --tmpl-file="templates/example.html"
 ```
-
 ## Advanced Usage
 
 ### Running Without Flags
@@ -38,6 +37,10 @@ Required params will be taken from `data.csv` and `.env` files.
 > ```sh
 > go run ./cmd/quick/main.go -h  # Show all available options
 > ```
+
+### Log results
+
+Program logs all email sending attempts to `.history.log`.
 
 ### Data File
 
