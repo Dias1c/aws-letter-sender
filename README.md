@@ -66,13 +66,17 @@ Explaining variable keys:
 
 #### System data Variables
 
-| key             | type     | description           |
+System reserved variables are named with capital letters. Each system variable has its own function.
+
+| key             | type     | function              |
 | --------------- | -------- | --------------------- |
 | `EMAIL`         | required | recipient email       |
 | `TEMPLATE_FILE` | optional | path to template file |
 | `SUBJECT`       | optional | letter subject        |
 | `SENDER_EMAIL`  | optional | aws sender email      |
 | `SENDER_REGION` | optional | aws region            |
+
+All optional variable values ​​are taken from the arguments passed to the program or from the `.env` file.
 
 ### Parameters Priority
 
