@@ -20,13 +20,6 @@ user2@example.com
 go run ./cmd/quick/main.go --data-file="data.csv" --email-sender="sender@email.com" --subject="Subject" --tmpl-file="templates/example.html"
 ```
 
-> [!TIP]
-> Program supports flag `-h`
->
-> ```sh
-> go run ./cmd/quick/main.go -h  # Show all available options
-> ```
-
 ## Advanced Usage
 
 ### Running Without Flags
@@ -38,6 +31,13 @@ go run ./cmd/quick/main.go
 ```
 
 Required params will be taken from `data.csv` and `.env` files.
+
+> [!TIP]
+> Program supports flag `-h`
+>
+> ```sh
+> go run ./cmd/quick/main.go -h  # Show all available options
+> ```
 
 ### Data File
 
