@@ -17,8 +17,11 @@ user2@example.com
 4. Run:
 
 ```bash
-go run ./cmd/quick/main.go --data-file="data.csv" --email-sender="sender@email.com" --subject="Subject" --tmpl-file="templates/example.html"
+./aws_ses_bulk_emails --data-file="data.csv" --email-sender="sender@email.com" --subject="Subject" --tmpl-file="templates/example.html"
 ```
+
+> [!NOTE]
+> You can run using golang. Just replace above `./aws_ses_bulk_emails` to `go run ./cmd/quick/main.go`
 
 ## Advanced Usage
 
