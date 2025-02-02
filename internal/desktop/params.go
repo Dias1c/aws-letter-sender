@@ -4,9 +4,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"runtime"
 
-	"github.com/Dias1c/aws-ses-bulk-emails/internal/configs"
 	"github.com/Dias1c/aws-ses-bulk-emails/pkg/letter/sender"
 )
 
@@ -27,6 +25,8 @@ func GetParams() (*Params, error) {
 		EmailSender: awsParams.SenderEmail,
 		EmailRegion: awsParams.SenderRegion,
 	}
+
+	flag.Usage = printProgramUsage
 
 	var (
 		showVersion = flag.Bool("version", false, "Show version")
@@ -55,7 +55,7 @@ template file. Files must end with '.txt',
 	flag.Parse()
 
 	if *showVersion {
-		fmt.Printf("%v-v%v-%v-%v\n", configs.ProgramName, configs.Vesrion, runtime.GOOS, runtime.GOARCH)
+		printProgramVersion()
 		return nil, ErrShowVersion
 	}
 
