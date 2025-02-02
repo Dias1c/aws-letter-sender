@@ -1,6 +1,7 @@
 package desktop
 
 import (
+	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -45,6 +46,10 @@ var lineVars = []string{
 // 3. .env file
 func Run() error {
 	params, err := GetParams()
+	if errors.Is(err, ErrShowVersion) {
+		return nil
+	}
+
 	if err != nil {
 		return fmt.Errorf("GetParams: %w(%v)", ErrFlagsRequired, err)
 	}

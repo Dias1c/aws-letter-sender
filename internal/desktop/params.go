@@ -4,7 +4,9 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"runtime"
 
+	"github.com/Dias1c/aws-ses-bulk-emails/internal/configs"
 	"github.com/Dias1c/aws-ses-bulk-emails/pkg/letter/sender"
 )
 
@@ -27,6 +29,8 @@ func GetParams() (*Params, error) {
 	}
 
 	var (
+		showVersion = flag.Bool("version", false, "Show version")
+
 		emailSender = flag.String("email-sender", "", `[optional]
 aws sender email
 `)  // --email-sender="
@@ -49,6 +53,11 @@ template file. Files must end with '.txt',
 `)  // --tmpl-file="path" -
 	)
 	flag.Parse()
+
+	if *showVersion {
+		fmt.Printf("%v-v%v-%v-%v\n", configs.ProgramName, configs.Vesrion, runtime.GOOS, runtime.GOARCH)
+		return nil, ErrShowVersion
+	}
 
 	if *emailSender != "" {
 		params.EmailSender = *emailSender
