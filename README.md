@@ -1,5 +1,7 @@
 # aws-ses-bulk-emails
 
+[![GitHub release](https://img.shields.io/github/release/Dias1c/aws-ses-bulk-emails.svg?style=flat-square)](https://github.com/Dias1c/aws-ses-bulk-emails/releases/latest)
+
 Bulk emails using [AWS SES](https://aws.amazon.com/ses/) with [HTML](https://pkg.go.dev/html/template)/[text](https://pkg.go.dev/text/template) templates support.
 
 ## Quick Send
