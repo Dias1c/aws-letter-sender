@@ -1,4 +1,4 @@
-module github.com/Dias1c/aws-letter-sender
+module github.com/Dias1c/aws-ses-bulk-emails
 
 go 1.17
 

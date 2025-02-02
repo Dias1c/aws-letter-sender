@@ -7,8 +7,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Dias1c/aws-letter-sender/pkg/letter/dtcomp"
-	"github.com/Dias1c/aws-letter-sender/pkg/letter/sender"
+	"github.com/Dias1c/aws-ses-bulk-emails/pkg/letter/dtcomp"
+	"github.com/Dias1c/aws-ses-bulk-emails/pkg/letter/sender"
 )
 
 func init() {

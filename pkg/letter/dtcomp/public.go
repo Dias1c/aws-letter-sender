@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/Dias1c/aws-letter-sender/pkg/letter/dtcomp/csv"
+	"github.com/Dias1c/aws-ses-bulk-emails/pkg/letter/dtcomp/csv"
 )
 
 type IDataCompiler interface {

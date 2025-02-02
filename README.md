@@ -1,6 +1,6 @@
-# aws-letter-sender
+# aws-ses-bulk-emails
 
-Email sender using [AWS SES](https://aws.amazon.com/ses/) with [HTML](https://pkg.go.dev/html/template)/[text](https://pkg.go.dev/text/template) templates support.
+Bulk emails using [AWS SES](https://aws.amazon.com/ses/) with [HTML](https://pkg.go.dev/html/template)/[text](https://pkg.go.dev/text/template) templates support.
 
 ## Quick Send
 
@@ -19,6 +19,7 @@ user2@example.com
 ```bash
 go run ./cmd/quick/main.go --data-file="data.csv" --email-sender="sender@email.com" --subject="Subject" --tmpl-file="templates/example.html"
 ```
+
 ## Advanced Usage
 
 ### Running Without Flags
@@ -83,7 +84,7 @@ System reserved variables are named with capital letters. Each system variable h
 
 All optional variable values ​​are taken from the arguments passed to the program or from the `.env` file.
 
-Variables that are not system keys will be used as variables for templates. 
+Variables that are not system keys will be used as variables for templates.
 
 ### Parameters Priority
 
