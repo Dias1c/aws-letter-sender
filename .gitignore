@@ -1,4 +1,5 @@
 .env
 *.sh
+!build.sh
 *.csv
 *.log
