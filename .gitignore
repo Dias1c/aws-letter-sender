@@ -3,3 +3,4 @@
 !build.sh
 *.csv
 *.log
+dist/*
